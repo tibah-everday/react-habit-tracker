@@ -1,6 +1,12 @@
 import React, { Component } from 'react'
 
 class Habit extends Component {
+    componentDidMount(){
+        console.log("Asdf")
+    }
+    componentWillUnmount(){
+        console.log("fdsa");
+    }
     handleInc = ()=>{
         this.props.onIncrease(this.props.habit);        
     }
@@ -13,8 +19,7 @@ class Habit extends Component {
     render() {
         // const {name, count} = this.props.habit;
         const name = this.props.habit.name;
-        const count = this.props.habit.count;
-        console.log(this.props.habit);
+        const count = this.props.habit.count;        
         return (
             <li className="habit">
                 <span className="habit-name">{name}</span>
@@ -27,5 +32,5 @@ class Habit extends Component {
     }
 }
 
-
+// state값이 없다면 함수로 컴포넌트를 구성 가능하고, 특정 컴포넌트에 데이터 변동이 없을 시 렌더링 하지 않고자 한다면 pureComponent(클래스) / memo(함수)를 사용
 export default Habit;
